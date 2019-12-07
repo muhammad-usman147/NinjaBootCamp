@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {% if x %}
+    <div id='TodoDesc'>
+
+            <strong></strong> ID: <i>{{ x['id'] }}</i> <br>
+            <strong></strong> Title:<i>{{ x['title'] }}</i> <br>
+            <strong></strong> Description:<i>{{ x['description'] }}</i> <br>
+           
+    </div>
+    {% else %}
+    <h3>OK it is False</h3>
+    {% endif %}
+    
+</body>
+</html>
