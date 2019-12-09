@@ -1,11 +1,11 @@
-from flask import Flask,render_template,request,redirect
+from flask import Flask,render_template,request,redirect,jsonify
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
     return render_template("index.html")
-@app.route('/getUserData',methods=['POST'])
+@app.route('/getUserData',methods=['GET','POST'])
 def GetData():
 
     flag = True
@@ -19,8 +19,15 @@ def GetData():
         elif bool(v) == True:
             pass
     if flag == True:
-        return render_template("ShowData.html",x=data)
+        
+        data['id'] = '1213412'
+        data['title'] = 'empty title'
+        data['description'] = 'empty description'        
+        return jsonify(data)
     elif flag == False:
-        return render_template("ShowData.html",x=False)
+        data['id'] = '1213412'
+        data['title'] = 'empty title'
+        data['description'] = 'empty description'
+        return jsonify(data)
 if __name__ == '__main__':
     app.run(debug=True)
