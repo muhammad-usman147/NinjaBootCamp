@@ -19,6 +19,10 @@ def Main(title,desc):
 def getdata():
     result = firebase.get('ninjabootcamp-b7626/','')
     return jsonify(result)
+@app.route("/getData/<id>")
+def GetParticularData(id):
+    result = firebase.get('ninjabootcamp-b7626/',id)
+    return jsonify(result)
 @app.route("/UpdateData/<id>/<title>/<desc>")
 def PutData(id,title,desc):
     result1 = firebase.put('ninjabootcamp-b7626/{}'.format(str(id)),'Title',title)
